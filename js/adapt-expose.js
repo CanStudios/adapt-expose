@@ -12,7 +12,8 @@ define(function(require) {
 		events: {
 			"click .expose-item-cover": "toggleItem",
 			"click .expose-item-content": "toggleItem",
-			"click .expose-item-button": "toggleItem"
+			"click .expose-item-button": "toggleItem",
+            "click .expose-item-button-screen-reader": "toggleItem"
 		},
 
 		onDeviceResize: function() {
@@ -73,6 +74,8 @@ define(function(require) {
 				var i = $cover.parents(".expose-item").index();
 				this.model.get("_items")[i]._isVisited = true;
 				this.evaluateCompletion();
+				// Add the content to the aria-live field, remove content's aria-hidden property
+				$parent.children(".expose-item-content-screen-reader").prepend($parent.children(".expose-item-content").clone().attr('aria-hidden', false));
 			}
 		},
 
