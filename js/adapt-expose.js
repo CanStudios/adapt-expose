@@ -13,7 +13,7 @@ define(function(require) {
 			"click .expose-item-cover": "toggleItem",
 			"click .expose-item-content": "toggleItem",
 			"click .expose-item-button": "toggleItem",
-            "click .expose-item-button-screen-reader": "toggleItem"
+			"click .expose-item-button-screen-reader": "toggleItem"
 		},
 
 		onDeviceResize: function() {
